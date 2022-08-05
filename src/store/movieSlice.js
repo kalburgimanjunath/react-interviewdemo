@@ -73,5 +73,9 @@ export default movieSlice.reducer;
 
 export const selectAllMovies = (state) => state.movies.movies;
 
-export const selectMovieById = (state, movieId) =>
-  state.movies.movies.find((movie) => movie.id === movieId);
+export const selectMovieById = (state, movieId) => {
+  // state.find((movie) => {
+  //   return movie.id === movieId;
+  // });
+  return state.find((movie) => movie.id == movieId);
+};
