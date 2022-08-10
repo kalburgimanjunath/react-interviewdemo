@@ -11,8 +11,16 @@ export default function Home() {
 
   const MovieList = ({ movies }) => {
     return movies.map((item) => {
+      console.log(item);
       return (
-        <div>
+        <div style={{ padding: 10 }}>
+          <div>
+            <img
+              src={`https://image.tmdb.org/t/p/original/${item.poster_path}`}
+              size={300}
+              width="300"
+            />
+          </div>
           <a href={`./details/${item.id}`}>{item.title}</a>
         </div>
       );
@@ -20,8 +28,9 @@ export default function Home() {
   };
   return (
     <div>
-      <h1>Home</h1>
-      {movies[0] ? <MovieList movies={movies[0]} /> : null}
+      <div style={{ display: 'flex' }}>
+        {movies[0] ? <MovieList movies={movies[0]} /> : null}
+      </div>
     </div>
   );
 }
