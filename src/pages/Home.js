@@ -13,7 +13,7 @@ export default function Home() {
     return movies.map((item) => {
       console.log(item);
       return (
-        <div style={{ padding: 10 }}>
+        <div style={{ padding: 10 }} className="videoContainer">
           <div>
             <img
               src={`https://image.tmdb.org/t/p/original/${item.poster_path}`}
@@ -21,7 +21,13 @@ export default function Home() {
               width="300"
             />
           </div>
-          <a href={`./details/${item.id}`}>{item.title}</a>
+          <a href={`./details/${item.id}`}>{item.original_title}</a>
+          <div className="movie-detail">
+            <p>{item.overview}</p>
+            <div>
+              Rating:{item.vote_average},Likes:{item.vote_count}
+            </div>
+          </div>
         </div>
       );
     });
